@@ -13,6 +13,14 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2.1.0
 
+        - name: Copy files
+   run: |
+    cp ./index.html /usr/share/nginx/html
+    cp ./javascript.js /usr/share/nginx/html
+    cp ./README.md /usr/share/nginx/html
+    cp ./style.css /usr/share/nginx/html
+
+
       - name: Copy files
         run: |
           COPY ./index.html /usr/share/nginx/html
