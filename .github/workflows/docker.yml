@@ -13,11 +13,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2.1.0
 
-          USERNAME: ${{ secrets.USER }}
-          PASSWORD: ${{ secrets.PASSWORD }}
-
-      - name: Set up Docker Buildx
-        
+        USERNAME: ${{ secrets.USER }}
+        PASSWORD: ${{ secrets.PASSWORD }}
 
       - name: Build and push Docker image
       - uses: docker/setup-buildx-action@v3.2.0
