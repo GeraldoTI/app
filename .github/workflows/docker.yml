@@ -1,4 +1,3 @@
-
 name: CI/CD Pipeline
 
 on:
@@ -12,17 +11,17 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.1.0
 
       - name: Login to Docker
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2.1.0
         with:
-          username: ${{ secrets.USERN }}
-          password: ${{ secrets.PASSWORD }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASS }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
-          tags: geraldodevops/teste:latest
+          tags: geraldodevops/devopsv1:latest
