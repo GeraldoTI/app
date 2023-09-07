@@ -1,27 +1,35 @@
-name: CI/CD Pipeline
+nome : Pipeline CI/CD
 
-on:
-  push:
-    branches:
-      - main
+em :
+  empurrar :
+    filiais :
+      - principal
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+empregos :
+  construir :
+    executado : ubuntu-mais recente
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2.1.0
+    etapas :
+      - nome : código de checkout
+        usa : ações/checkout@v2.1.0
 
-      - name: Login to Docker
-        uses: docker/login-action@v2.1.0
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASS }}
+      - nome : Copiar arquivos
+        executar : |
+          COPY ./index.html /usr/share/nginx/html
+          COPY ./javascript.js /usr/share/nginx/html
+          COPY ./README.md /usr/share/nginx/html
+          COPY ./style.css /usr/share/nginx/html
 
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          push: true
-          tags: geraldodevops/devopsv5:latest
+      - nome : Faça login no Docker
+        usa : docker/login-action@v2.1.0
+        com :
+          nome de usuário : ${{ secrets.DOCKERHUB_USERNAME }}
+          senha : ${{ secrets.DOCKERHUB_PASS }}
+
+      - nome : Construir e enviar imagem Docker
+        usa : docker/build-push-action@v2
+        com :
+          contexto : .
+          empurrar : verdadeiro
+          tags : geraldodevops/devopsv5:mais recentes
+
