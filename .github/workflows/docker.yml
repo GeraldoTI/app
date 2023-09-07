@@ -24,4 +24,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: geraldodevops/devopsv4:latest
+          tags: geraldodevops/devopsv5:latest
