@@ -19,5 +19,5 @@ jobs:
         context: .
         push: true
         tags: geraldodevops/devopsv1:latest
-        username: geraldodevops
-        password: Geraldo1qa2ws
+        username: 
+        password: 
