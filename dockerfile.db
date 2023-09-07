@@ -1,0 +1,9 @@
+# Use a imagem base do PostgreSQL
+FROM postgres:latest
+
+# Defina as variáveis de ambiente para o PostgreSQL
+ENV POSTGRES_PASSWORD mypassword
+ENV POSTGRES_DB mydatabase
+
+# Copie o script de inicialização do banco de dados para o diretório de inicialização do PostgreSQL
+COPY ./mydatabase.sql /docker-entrypoint-initdb.d/
