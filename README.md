@@ -9,4 +9,6 @@
 
 # Realizado ajuste na pipe line e a imagem está no dockerhub
 
-# https://hub.docker.com/r/geraldodevops/devopsv3
+# https://hub.docker.com/r/geraldodevops/devopsv3 
+
+# Feito
