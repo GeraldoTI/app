@@ -21,9 +21,6 @@ jobs:
         with:
           context:
           push: true
-          tags:
-        env:
-          
-        run: |
-          docker buildx create --use
-          docker buildx build --push --tag <dockerhub_geraldodevops>/<teste>:latest .
+          tags:  |
+            geraldodevops/devops:v1
+            geraldodevops/devops:lastet
