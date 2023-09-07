@@ -17,10 +17,10 @@ jobs:
           username: ${{ secrets.USER }}
           password: ${{ secrets.PASSWORD}} 
       - name: Build and push Docker images
-        with:
+             with:
           context:
-          file:
-          push: true 
+             file:
+             push: true 
           tags: | 
             geraldodevops/builddockerhub:v1
             geraldodevops/builddockerhub:latest
