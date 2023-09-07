@@ -6,3 +6,8 @@
 # Autor Geraldo Alves 
 
 # Em desenvolvimento de CI/CD para testes e implementações 
+
+# PipeLine Corrigido | DevOps
+https://hub.docker.com/r/geraldodevops/devopsv3
+
+
