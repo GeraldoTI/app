@@ -1,3 +1,4 @@
+
 name: CI/CD
 
 on:
@@ -13,22 +14,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
 
-    - name: Docker Login 
-    - uses: docker/login-action@v2.1.0
+- uses: actions/checkout@v3
+
+  - name: Docker Login 
+  - uses: docker/login-action@v2.1.0
       with:
         username: ${{ secrets.USER }}
         password: ${{ secrets.PASSWORD}} 
 
-    - name: Build and push Docker images
-      with:
+  - name: Build and push Docker images
+  with:
         context:
         file:
         push: true 
         tags: | 
-          geraldodevops/builddockerhub:v1
-          geraldodevops/builddockerhub:latest
+         geraldodevops/builddockerhub:v1
+         geraldodevops/builddockerhub:latest
     
     
       
