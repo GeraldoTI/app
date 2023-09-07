@@ -20,7 +20,7 @@ jobs:
       - name: Build and push Docker image
         env:
           DOCKER_USERNAME: ${{ secrets.USER }}
-          DOCKER_PASSWORD: ${{ secrets._PASSWORD }}
+          DOCKER_PASSWORD: ${{ secrets.PASSWORD }}
         run: |
           docker buildx create --use
           docker buildx build --push --tag <dockerhub_geraldodevops>/<teste>:latest .
