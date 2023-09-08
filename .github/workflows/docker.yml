@@ -31,6 +31,6 @@ jobs:
 
     - name: Push Docker image to Docker Hub
       run: docker push geraldodevops/devopsv6:latest
-        push: true
+      
         tags: geraldodevops/devopsv5:latest
       
