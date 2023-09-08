@@ -11,4 +11,4 @@
 
 # https://hub.docker.com/r/geraldodevops/devopsv3 
 
-# Feito
+# Em fase de implementação
