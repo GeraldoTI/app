@@ -15,11 +15,7 @@ jobs:
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v2
-      with:
-        context: .
-        push: true
-        tags: geraldodevops/devopsv5:latest
-
+      
     - name: Copy files to Docker image
       run: |
         docker cp index.html CONTAINER_ID:/usr/share/nginx/html
@@ -31,5 +27,8 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASS }}
-
+        with:
+        context: .
+        push: true
+        tags: geraldodevops/devopsv5:latest
       
