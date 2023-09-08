@@ -1,27 +1,35 @@
-name: CI/CD Pipeline
+name: Docker Build and Push
 
 on:
   push:
     branches:
-      - main
+      - main  # ajuste o nome da branch conforme necessário
 
 jobs:
-  build:
+  build-and-push:
     runs-on: ubuntu-latest
-
+    
+    env:
+      DOCKER_IMAGE_TAG: latest  # Defina a tag padrão aqui
+    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2.1.0
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Login to Docker
-        uses: docker/login-action@v2.1.0
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASS }}
-
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          push: true
-          tags: geraldodevops/devopsv1:latest
+    - name: Copy Files
+      run: |
+        mkdir -p ./nginx-content
+        cp ./index.html ./nginx-content/
+        cp ./javascript.js ./nginx-content/
+        cp ./README.md ./nginx-content/
+        cp ./style.css ./nginx-content/
+    
+    - name: Build and Push Docker Image
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}  # Use o token de acesso pessoal aqui
+        DOCKER_IMAGE_NAME: geraldodevops/devopsv7
+      run: |
+        docker build -t $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG -f Dockerfile .
+        echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+        docker push $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG
