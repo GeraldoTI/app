@@ -27,8 +27,8 @@ jobs:
     - name: Build and Push Docker Image
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-        DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
-        DOCKER_IMAGE_NAME: geraldodevops/devopsv5
+        DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}  # Use o token de acesso pessoal aqui
+        DOCKER_IMAGE_NAME: geraldodevops/devopsv7
       run: |
         docker build -t $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG -f Dockerfile .
         echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
