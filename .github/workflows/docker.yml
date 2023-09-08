@@ -9,18 +9,27 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
     
+    env:
+      DOCKER_IMAGE_TAG: latest  # Defina a tag padrão aqui
+    
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Copy Files
+      run: |
+        mkdir -p ./nginx-content
+        cp ./index.html ./nginx-content/
+        cp ./javascript.js ./nginx-content/
+        cp ./README.md ./nginx-content/
+        cp ./style.css ./nginx-content/
+    
     - name: Build and Push Docker Image
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
-        DOCKER_IMAGE_TAG: latest  # Você pode ajustar a tag conforme necessário
+        DOCKER_IMAGE_NAME: geraldodevops/devopsv5
       run: |
-        docker build -t $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG .
+        docker build -t $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG -f Dockerfile .
         echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
         docker push $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG
-
-      
