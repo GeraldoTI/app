@@ -24,4 +24,6 @@ https://hub.docker.com/r/geraldodevops/devopsv7
 
 Amigos parte 2
 
+https://hub.docker.com/r/geraldodevops/devopsv7
+
 >>>>>>> origin/main
