@@ -19,7 +19,7 @@
 # Feito 
 =======
 # PipeLine Corrigido | DevOps
-https://hub.docker.com/r/geraldodevops/devopsv3
+https://hub.docker.com/r/geraldodevops/devopsv7
 
 
 Amigos parte 2
