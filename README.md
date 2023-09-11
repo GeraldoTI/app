@@ -12,3 +12,5 @@
 # https://hub.docker.com/r/geraldodevops/devopsv3 
 
 # Em fase de implementação
+
+# Amostra para Amigos
